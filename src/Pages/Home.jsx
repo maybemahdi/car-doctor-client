@@ -3,6 +3,8 @@ import img1 from "../../src/assets/images/banner/1.jpg";
 import img2 from "../../src/assets/images/banner/2.jpg";
 import img3 from "../../src/assets/images/banner/3.jpg";
 import img4 from "../../src/assets/images/banner/4.jpg";
+import about1 from "../../src/assets/images/about_us/person.jpg";
+import about2 from "../../src/assets/images/about_us/parts.jpg";
 const Home = () => {
   return (
     <div>
@@ -10,11 +12,11 @@ const Home = () => {
       <div className="carousel w-full">
         <div
           id="slide1"
-          className="carousel-item relative rounded-lg md:h-[600px] w-full"
+          className="carousel-item relative rounded-lg h-[500px] md:h-[600px] w-full"
         >
           <img src={img1} className="w-full h-full rounded-lg" />
           <div className="absolute rounded-lg inset-0 bg-black opacity-50"></div>
-          <div className="flex absolute flex-col pl-5 md:pl-16 justify-start space-y-6 my-36 text-white">
+          <div className="flex absolute flex-col pl-5 md:pl-16 justify-start my-20 space-y-6 lg:my-36 text-white">
             <h3 className="lg:text-6xl text-4xl w-[40%] font-bold text-white">
               Affordable Price For Car Servicing
             </h3>
@@ -48,11 +50,11 @@ const Home = () => {
         </div>
         <div
           id="slide2"
-          className="carousel-item md:h-[600px] rounded-lg relative w-full"
+          className="carousel-item relative rounded-lg h-[500px] md:h-[600px] w-full"
         >
           <img src={img2} className="w-full h-full rounded-lg" />
           <div className="absolute rounded-lg inset-0 bg-black opacity-50"></div>
-          <div className="flex absolute flex-col pl-5 md:pl-16 justify-start space-y-6 my-36 text-white">
+          <div className="flex absolute flex-col pl-5 md:pl-16 justify-start my-20 space-y-6 lg:my-36 text-white">
             <h3 className="lg:text-6xl text-4xl w-[40%] font-bold text-white">
               Affordable Price For Car Servicing
             </h3>
@@ -86,11 +88,11 @@ const Home = () => {
         </div>
         <div
           id="slide3"
-          className="carousel-item md:h-[600px] relative rounded-lg w-full"
+          className="carousel-item relative rounded-lg h-[500px] md:h-[600px] w-full"
         >
           <img src={img3} className="w-full h-full rounded-lg" />
           <div className="absolute rounded-lg inset-0 bg-black opacity-50"></div>
-          <div className="flex absolute flex-col pl-5 md:pl-16 justify-start space-y-6 my-36 text-white">
+          <div className="flex absolute flex-col pl-5 md:pl-16 justify-start my-20 space-y-6 lg:my-36 text-white">
             <h3 className="lg:text-6xl text-4xl w-[40%] font-bold text-white">
               Affordable Price For Car Servicing
             </h3>
@@ -124,11 +126,11 @@ const Home = () => {
         </div>
         <div
           id="slide4"
-          className="carousel-item md:h-[600px] rounded-lg relative w-full"
+          className="carousel-item relative rounded-lg h-[500px] md:h-[600px] w-full"
         >
           <img src={img4} className="w-full h-full rounded-lg" />
           <div className="absolute rounded-lg inset-0 bg-black opacity-50"></div>
-          <div className="flex absolute flex-col pl-5 md:pl-16 justify-start space-y-6 my-36 text-white">
+          <div className="flex absolute flex-col pl-5 md:pl-16 justify-start my-20 space-y-6 lg:my-36 text-white">
             <h3 className="lg:text-6xl text-4xl w-[40%] font-bold text-white">
               Affordable Price For Car Servicing
             </h3>
@@ -158,6 +160,34 @@ const Home = () => {
             >
               <GoArrowRight className="h-6 w-6" />
             </a>
+          </div>
+        </div>
+      </div>
+      {/* about section  */}
+      <div className="my-10">
+        <div className="hero-content p-0 flex-col-reverse gap-10 lg:flex-row">
+          <div className="card shrink-0 lg:w-1/2 bg-base-100">
+           <div className="relative">
+            <img className="w-[90%] rounded-xl h-[350px] md:h-[473px]" src={about1} alt="" /><img src="" alt="" />
+            <img className="absolute right-2 border-[10px] rounded-t-xl border-white top-1/2 w-[327px] h-[350px] md:h-[332px]" src={about2} alt="" /><img src="" alt="" />
+           </div>
+          </div>
+          <div className="text-center flex flex-col lg:w-1/2 lg:text-left">
+            <p className="text-xl text-[#FF3811] font-semibold">About Us</p>
+            <h1 className="text-5xl mt-8 font-bold lg:w-[85%]">
+              We are Qualified & of experience in this field
+            </h1>
+            <p className="py-5">
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which don't look even
+              slightly believable.
+            </p>
+            <p className="">
+              the majority have suffered alteration in some form, by injected
+              humour, or randomised words which don't look even slightly
+              believable.
+            </p>
           </div>
         </div>
       </div>
