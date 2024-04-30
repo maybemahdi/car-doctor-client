@@ -5,7 +5,18 @@ import img3 from "../../src/assets/images/banner/3.jpg";
 import img4 from "../../src/assets/images/banner/4.jpg";
 import about1 from "../../src/assets/images/about_us/person.jpg";
 import about2 from "../../src/assets/images/about_us/parts.jpg";
+import { useEffect, useState } from "react";
+import ServiceCard from "../Components/ServiceCard";
 const Home = () => {
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    fetch("services.json")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setServices(data);
+      });
+  }, []);
   return (
     <div>
       {/* banner slider  */}
@@ -167,10 +178,20 @@ const Home = () => {
       <div className="my-10">
         <div className="hero-content p-0 flex-col-reverse gap-10 lg:flex-row">
           <div className="card shrink-0 lg:w-1/2 bg-base-100">
-           <div className="relative">
-            <img className="w-[90%] rounded-xl h-[350px] md:h-[473px]" src={about1} alt="" /><img src="" alt="" />
-            <img className="absolute right-2 border-[10px] rounded-t-xl border-white top-1/2 w-[327px] h-[350px] md:h-[332px]" src={about2} alt="" /><img src="" alt="" />
-           </div>
+            <div className="relative">
+              <img
+                className="w-[90%] rounded-xl h-[350px] md:h-[473px]"
+                src={about1}
+                alt=""
+              />
+              <img src="" alt="" />
+              <img
+                className="absolute right-2 border-[10px] rounded-t-xl border-white top-1/2 w-[327px] h-[350px] md:h-[332px]"
+                src={about2}
+                alt=""
+              />
+              <img src="" alt="" />
+            </div>
           </div>
           <div className="text-center flex flex-col lg:w-1/2 lg:text-left">
             <p className="text-xl text-[#FF3811] font-semibold">About Us</p>
@@ -189,6 +210,25 @@ const Home = () => {
               believable.
             </p>
           </div>
+        </div>
+      </div>
+      {/* service section  */}
+      <div className="flex flex-col mt-40 mb-10 items-center">
+        <p className="text-xl text-[#FF3811] font-semibold">Service</p>
+        <h3 className="text-3xl mt-3 font-bold">Our Service Area</h3>
+        <p data-aos="zoom-out-right" className="text-center my-5 md:w-[60%]">
+          The majority have suffered alteration in some form, by injected
+          humour, or randomised words which don't look even slightly believable.
+        </p>
+      </div>
+      <div className="grid mb-10 gap-8 grid-cols-1 lg:grid-cols-3">
+        {services.map((service) => (
+          <ServiceCard key={service._id} service={service}></ServiceCard>
+        ))}
+        <div className="lg:col-span-3 my-5 mx-auto">
+          <button className="btn btn-outline box-border hover:border-[#ddd0] text-[#FF3811] border-[#FF3811] hover:bg-[#FF3811]">
+            More Services
+          </button>
         </div>
       </div>
     </div>
