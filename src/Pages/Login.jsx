@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import img from "../../src/assets/images/login/login.svg";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { signIn,setLoading } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const { signIn, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,14 +14,14 @@ const Login = () => {
     const password = form.password.value;
     const userInfo = { email, password };
     const handleFirebaseError = (errorCode) => {
-        switch (errorCode) {
-          case "Firebase: Error (auth/invalid-credential).":
-            return "Wrong email or password. Please try again.";
-          // Add more cases for other error codes as needed
-          default:
-            return "An error occurred. Please try again later.";
-        }
-      };
+      switch (errorCode) {
+        case "Firebase: Error (auth/invalid-credential).":
+          return "Wrong email or password. Please try again.";
+        // Add more cases for other error codes as needed
+        default:
+          return "An error occurred. Please try again later.";
+      }
+    };
     console.log(userInfo);
     signIn(email, password)
       .then((userCredential) => {
@@ -33,8 +33,8 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false)
-        form.reset()
+        setLoading(false);
+        form.reset();
         const errorMessage = handleFirebaseError(error.message);
         toast.error(errorMessage);
       });
@@ -80,6 +80,7 @@ const Login = () => {
                 Sign in
               </button>
             </div>
+          <h3 className="font-bold mt-2 text-center">New to Website? <span className="text-blue-500"><Link to={'/register'}>Register</Link></span></h3>
           </form>
         </div>
       </div>

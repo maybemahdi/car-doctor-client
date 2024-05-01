@@ -2,7 +2,7 @@ import { useContext } from "react";
 import img from "../../src/assets/images/login/login.svg";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
 const Register = () => {
@@ -90,6 +90,7 @@ const Register = () => {
                 Sign Up
               </button>
             </div>
+            <h3 className="font-bold mt-2 text-center">Have an Account? <span className="text-blue-500"><Link to={'/login'}>Login</Link></span></h3>
           </form>
         </div>
       </div>
