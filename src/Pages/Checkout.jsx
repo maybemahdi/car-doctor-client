@@ -26,7 +26,7 @@ const Checkout = () => {
       message,
     };
     console.log(info);
-    axios.post("http://localhost:5000/bookings", info).then((res) => {
+    axios.post("https://car-doctor-server-roan-beta.vercel.app/bookings", info).then((res) => {
       console.log(res.data);
       if(res.data.insertedId){
         Swal.fire({
