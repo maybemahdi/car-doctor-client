@@ -9,7 +9,7 @@ const ServiceCard = ({ service }) => {
       <h3 className="text-[28px] font-semibold text-black">{title}</h3>
       <div className="flex justify-between">
         <p className="text-xl font-semibold text-[#FF3811]">Price: ${price}</p>
-        <Link>
+        <Link to={`/checkout/${_id}`}>
           <GoArrowRight className="h-6 w-6 hover:scale-x-150 transition-all duration-500 text-[#FF3811]" />
         </Link>
       </div>

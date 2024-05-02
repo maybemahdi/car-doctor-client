@@ -80,7 +80,12 @@ const Login = () => {
                 Sign in
               </button>
             </div>
-          <h3 className="font-bold mt-2 text-center">New to Website? <span className="text-blue-500"><Link to={'/register'}>Register</Link></span></h3>
+            <h3 className="font-bold mt-2 text-center">
+              New to Website?{" "}
+              <span className="text-blue-500">
+                <Link to={"/register"}>Register</Link>
+              </span>
+            </h3>
           </form>
         </div>
       </div>

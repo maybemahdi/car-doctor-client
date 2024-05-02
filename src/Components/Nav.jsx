@@ -66,7 +66,7 @@ const Nav = () => {
           Blog
         </NavLink>
       </li> */}
-      <li>
+      {/* <li>
         <NavLink
           to={"/contact"}
           className={({ isActive, isPending }) =>
@@ -79,7 +79,7 @@ const Nav = () => {
         >
           Contact
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink
           to={"/login"}
@@ -108,17 +108,33 @@ const Nav = () => {
           Register
         </NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink
+            to={"/myCart"}
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "border focus:bg-[#fff] focus:text-[#FF3811] text-[##FF3811] border-[#FF3811] no-underline bg-white"
+                : "text-black no-underline"
+            }
+          >
+            My Cart
+          </NavLink>
+        </li>
+      )}
     </>
   );
   const handleLogOut = () => {
     logOut()
-    .then(()=> {
-      toast.success("Sign Out Successfully")
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
+      .then(() => {
+        toast.success("Sign Out Successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="navbar bg- my-5">
       <div className="navbar-start">

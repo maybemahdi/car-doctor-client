@@ -7,14 +7,21 @@ import about1 from "../../src/assets/images/about_us/person.jpg";
 import about2 from "../../src/assets/images/about_us/parts.jpg";
 import { useEffect, useState } from "react";
 import ServiceCard from "../Components/ServiceCard";
+import axios from "axios";
 const Home = () => {
   const [services, setServices] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/services")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setServices(data);
+  //     });
+  // }, []);
   useEffect(() => {
-    fetch("services.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setServices(data);
-      });
+    axios.get("http://localhost:5000/services")
+    .then(data => {
+      setServices(data.data)
+    })
   }, []);
   return (
     <div>
