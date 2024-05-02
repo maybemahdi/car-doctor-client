@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import img from "../../src/assets/images/login/login.svg";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { signIn, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -29,7 +30,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         toast.success("Logged in Successfully");
-        navigate("/");
+        navigate(location.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);

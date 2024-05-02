@@ -5,11 +5,14 @@ import img3 from "../../src/assets/images/banner/3.jpg";
 import img4 from "../../src/assets/images/banner/4.jpg";
 import about1 from "../../src/assets/images/about_us/person.jpg";
 import about2 from "../../src/assets/images/about_us/parts.jpg";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ServiceCard from "../Components/ServiceCard";
 import axios from "axios";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import Loader from "../Components/Loader";
 const Home = () => {
   const [services, setServices] = useState([]);
+  const {loading} = useContext(AuthContext)
   // useEffect(() => {
   //   fetch("http://localhost:5000/services")
   //     .then((res) => res.json())
@@ -23,6 +26,9 @@ const Home = () => {
       setServices(data.data)
     })
   }, []);
+  if(loading){
+    return <Loader/>
+  }
   return (
     <div>
       {/* banner slider  */}

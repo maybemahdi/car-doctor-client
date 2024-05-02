@@ -12,6 +12,7 @@ import { Toaster } from "react-hot-toast";
 import Error from "./Pages/Error.jsx";
 import Checkout from "./Pages/Checkout.jsx";
 import MyCart from "./Pages/MyCart.jsx";
+import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/myCart",
-        element: <MyCart />,
+        element: (
+          <PrivateRoute>
+            <MyCart />
+          </PrivateRoute>
+        ),
       },
     ],
   },
