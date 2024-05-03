@@ -7,10 +7,10 @@ const ServiceCard = ({ service }) => {
     <div className="flex flex-col w-[314px]">
       <img className="w-[314px] h-[208px] rounded-xl mb-4" src={img} alt="" />
       <h3 className="text-[28px] font-semibold text-black">{title}</h3>
-      <div className="flex justify-between">
+      <div className="flex gap-2 flex-col">
         <p className="text-xl font-semibold text-[#FF3811]">Price: ${price}</p>
         <Link to={`/checkout/${_id}`}>
-          <GoArrowRight className="h-6 w-6 hover:scale-x-150 transition-all duration-500 text-[#FF3811]" />
+          <button className="btn hover:border-[#FF3811] hover:text-[#FF3811] hover:bg-[#ddd0] text-white bg-[#FF3811]">Book Now</button>
         </Link>
       </div>
     </div>

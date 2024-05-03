@@ -10,9 +10,9 @@ import Swal from "sweetalert2";
 const MyCart = () => {
   const { user, loading } = useContext(AuthContext);
   const [myBookings, setMyBookings] = useState([]);
-  const url = `https://car-doctor-server-roan-beta.vercel.app/bookings?email=${user?.email}`;
+  const url = `http://localhost:5000/bookings?email=${user?.email}`;
   useEffect(() => {
-    axios.get(url).then((data) => {
+    axios.get(url, { withCredentials: true }).then((data) => {
       setMyBookings(data.data);
     });
   }, [url]);
@@ -21,7 +21,7 @@ const MyCart = () => {
   }
   const handleConfirm = (id) => {
     axios
-      .patch(`https://car-doctor-server-roan-beta.vercel.app/bookings/${id}`, { status: "confirmed" })
+      .patch(`http://localhost:5000/bookings/${id}`, { status: "confirmed" })
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount > 0) {
@@ -44,7 +44,7 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://car-doctor-server-roan-beta.vercel.app/bookings/${id}`).then((res) => {
+        axios.delete(`http://localhost:5000/bookings/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
             Swal.fire({
