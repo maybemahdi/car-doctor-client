@@ -1,12 +1,13 @@
-import { useContext } from "react";
+// import { useContext } from "react";
+// import { AuthContext } from "../AuthProvider/AuthProvider";
 import img from "../../src/assets/images/login/login.svg";
-import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../Firebase/firebase.config";
+import useAuth from "../Hooks/useAuth";
 const Register = () => {
-  const { createUser, update, setUpdate } = useContext(AuthContext);
+  const { createUser, update, setUpdate } = useAuth();
   const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();

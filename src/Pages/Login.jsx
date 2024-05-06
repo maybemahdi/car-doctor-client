@@ -1,12 +1,13 @@
-import { useContext } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+// import { useContext } from "react";
+// import { AuthContext } from "../AuthProvider/AuthProvider";
 import img from "../../src/assets/images/login/login.svg";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import useAuth from "../Hooks/useAuth";
+// import axios from "axios";
 
 const Login = () => {
-  const { signIn, setLoading } = useContext(AuthContext);
+  const { signIn, setLoading } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const handleLogin = (e) => {
@@ -29,17 +30,10 @@ const Login = () => {
       .then((userCredential) => {
         const loggedInUser = userCredential.user;
         console.log(loggedInUser);
-        const user = { email };
+        // const user = { email };
         form.reset();
         toast.success("Logged in Successfully");
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.success) {
-              navigate(location.state ? location.state : "/");
-            }
-          });
+        navigate(location.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);

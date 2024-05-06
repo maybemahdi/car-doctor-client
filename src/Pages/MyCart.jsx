@@ -6,16 +6,19 @@ import banner from "../../src/assets/images/banner/6.jpg";
 import { MdCancel } from "react-icons/md";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const MyCart = () => {
   const { user, loading } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure()
   const [myBookings, setMyBookings] = useState([]);
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  // const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `/bookings?email=${user?.email}`;
   useEffect(() => {
-    axios.get(url, { withCredentials: true }).then((data) => {
+    axiosSecure.get(url).then((data) => {
       setMyBookings(data.data);
     });
-  }, [url]);
+  }, [url, axiosSecure]);
   if (loading) {
     return <Loader></Loader>;
   }
