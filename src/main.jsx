@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/services/${params.id}`
+            `https://car-doctor-server-roan-beta.vercel.app/services/${params.id}`
           ),
       },
       {

@@ -14,14 +14,14 @@ const Home = () => {
   const [services, setServices] = useState([]);
   const {loading} = useContext(AuthContext)
   // useEffect(() => {
-  //   fetch("http://localhost:5000/services")
+  //   fetch("https://car-doctor-server-roan-beta.vercel.app/services")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setServices(data);
   //     });
   // }, []);
   useEffect(() => {
-    axios.get("http://localhost:5000/services")
+    axios.get("https://car-doctor-server-roan-beta.vercel.app/services")
     .then(data => {
       setServices(data.data)
     })
